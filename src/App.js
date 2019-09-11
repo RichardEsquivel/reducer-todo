@@ -7,11 +7,16 @@ import TodoForm from './components/TodoComponents/TodoForm.js';
 function App() {
 	//Destructuring the state and dispatch function from invocation of useReducer, dispatch functions much like setState as a function to change state. 
 	const [state, dispatch] = useReducer(reducer, initialState);
-	console.log('This is your state', state);
+
+	//We will utilize dispatch function and have a type of ADD_TODO without our reducer function within the switch that will take the data or payload of newTodo and execute an action upon it
+	const addATodo = item => {
+		dispatch({ type: "ADD_TODO", payload: item });
+	};
+
 	return (
 		<div className="App">
 			<TodoList todoList={state.todoList} />
-			<TodoForm />
+			<TodoForm addATodo={addATodo} />
 		</div>
 	)
 }
