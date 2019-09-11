@@ -2,7 +2,7 @@
 export const initialState = {
 	todoList: [
 		{
-			task: 'Organize Garage',
+			task: 'Organize Your Life!',
 			completed: false,
 			id: 1528817077286
 
