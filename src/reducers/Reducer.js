@@ -37,7 +37,7 @@ export function reducer(state, action) {
 					}
 				})
 			};
-		//Adding case for CLEAR_SCHEDULE dispatch utilze filter state.todoArrays to filter out the opposite of completed and display only those
+		//Adding case for CLEAR_SCHEDULE dispatch utilze filter state.todoArrays to filter out the opposite of completed and display only those that are not completed
 		case "CLEAR_SCHEDULE":
 			return {
 				...state, todoArrays: state.todoArrays.filter(todo => {
