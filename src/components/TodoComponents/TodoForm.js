@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 //Destructing a function addATodo that TodoForm will expect as a prop 
-const TodoForm = ({ addATodo }) => {
+const TodoForm = ({ addATodo, clearSchedule }) => {
 	//set intial state of item to empty string
 	const [item, setItem] = useState("");
 	//handleChange will change contents of item to the value typed in with e.target.value being the value passed in
@@ -13,6 +13,11 @@ const TodoForm = ({ addATodo }) => {
 		addATodo(item);
 		setItem("");
 	}
+	//This prevents default submit action of ClearMySchedule button
+	const handleClearing = e => {
+		e.preventDefault();
+		clearSchedule();
+	};
 	return (
 		<form onSubmit={handleSubmit}>
 			<input type="text"
@@ -20,6 +25,8 @@ const TodoForm = ({ addATodo }) => {
 				value={item}
 				onChange={handleChange} />
 			<button type="submit">Add A Todo
+			</button>
+			<button onClick={handleClearing}>Clear My Schedule!
 			</button>
 		</form>
 	);

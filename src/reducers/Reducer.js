@@ -37,6 +37,13 @@ export function reducer(state, action) {
 					}
 				})
 			};
+		//Adding case for CLEAR_SCHEDULE dispatch utilze filter state.todoArrays
+		case "CLEAR_SCHEDULE":
+			return {
+				...state, todoArrays: state.todoArrays.filter(todo => {
+					return !todo.completed;
+				})
+			};
 		default:
 			return state;
 	}

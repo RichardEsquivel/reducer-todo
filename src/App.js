@@ -18,11 +18,15 @@ function App() {
 		dispatch({ type: "TOGGLE_TODO", payload: id });
 	}
 
+	const clearSchedule = () => {
+		dispatch({ type: "CLEAR_SCHEDULE" });
+	}
+	//in the return pass state values or props as needed for above functions
 	return (
 		<div className="App cool-gradient">
 			<TodoList todoArrays={state.todoArrays}
 				toggleTodo={toggleTodo} />
-			<TodoForm addATodo={addATodo} />
+			<TodoForm addATodo={addATodo} clearSchedule={clearSchedule} />
 		</div>
 	)
 }
